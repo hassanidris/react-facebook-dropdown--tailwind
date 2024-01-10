@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* colors */
+  --bg-primary: #242526;
+  --bg-secondary: #484a4d;
+  --txt-clr: #dadce1;
+
+  /* Fonts */
+  --ff-primary: roboto;
+  --ff-secondary: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+
+  /* Sizes */
+  --h-nav: 60px;
+  --border: 1px solid #474a4d;
+  --brd-radius: 8px;
+  --btn-size: calc(var(--h-nav) * 0.5);
+
+  /* Animation */
+  --speed: 500ms;
+}
+
+body {
+  margin: 0;
+  background-color: #151616;
+  font-family: var(--ff-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .navbar {
+    @apply h-[var(--h-nav)] bg-[var(--bg-primary)]  
+           py-0 px-4 border-b-[var(--border)]
+  }
+
+  .navbar-nav {
+    @apply max-w-full h-full flex justify-end
+  }
+
+  .nav-item {
+    @apply w-[calc(var(--h-nav)*0.8)] flex items-center justify-center
+  }
+
+  .icon-button {
+    @apply w-8 h-8 bg-[#484a4d] rounded-[50%] p-1.5 m-0.5 flex items-center justify-center filter duration-300 hover:brightness-125 mr-2 hover:filter-none
+  }
+
+  svg {
+    @apply fill-[var(--txt-clr)] w-5 h-5
+  }
+
+  /* DropDown Menu */
+  .dropdown {
+    @apply absolute top-[58px] w-[300px] -translate-x-[45%] bg-[var(--bg-primary)] border-[var(--border)] rounded-[var(--brd-radius)] p-4 overflow-hidden
+  }
+
+  .menu {
+    @apply w-full
+  }
+
+  .menu-item {
+    @apply h-[50px] flex items-center rounded-[var(--brd-radius)] p-2 mr-2 hover:filter-none hover:bg-[#525357]
+  }
+
+  .icon-right {
+    @apply ml-auto
+  }
+
+  
+}
+
+  
+
+code {
+  font-family: var(--ff-secondary);
+}
+
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--txt-clr);
+  text-decoration: none;
+}
+
+
+.dropdown {
+  transition: height var(--speed) ease;
+}
+
+.menu-item {
+  transition: background var(--speed);
+}
+
+
+ /* ------------------- */
+
+
+
+/* CSSTransition classes  */
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-primary-exit {
+  position: absolute;
+}
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+/* .menu-secondary-exit {
+
+} */
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}
+
+
+
+
+
